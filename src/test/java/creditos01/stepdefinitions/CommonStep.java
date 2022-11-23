@@ -1,4 +1,4 @@
-package creditos01.stepdefinitions.serch_massive_credit;
+package creditos01.stepdefinitions;
 
 import cucumber.api.java.Before;
 import net.serenitybdd.screenplay.abilities.BrowseTheWeb;

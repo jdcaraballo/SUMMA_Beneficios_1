@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
-        features = "src/test/resources/features/serch_massive_credits.feature",
-        glue = "creditos01.stepdefinitions.serch_massive_credit",
+        features = "src/test/resources/features/login.feature",
+        glue = "creditos01.stepdefinitions.login",
        snippets= SnippetType.CAMELCASE,
         dryRun = false
 )
-public class SerchMassiveCredit {
+public class LoginR {
 }

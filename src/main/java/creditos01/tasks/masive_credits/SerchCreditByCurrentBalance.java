@@ -12,25 +12,26 @@ import static creditos01.userinterfaces.SerchMassiveCreditsUser.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static org.openqa.selenium.Keys.ENTER;
 
-public class SerchCreditByEndingBalance implements Task {
+public class SerchCreditByCurrentBalance implements Task {
 
-    private final String endingBalance;
+    private final String currentBalance;
 
-    public SerchCreditByEndingBalance(String endingBalance) {
-        this.endingBalance = endingBalance;
+    public SerchCreditByCurrentBalance(String currentBalance) {
+        this.currentBalance = currentBalance;
 }
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(BTN_VER_CREDITOS),
-                WaitElement.isClickable(BOX_CONSULTAR_ENDING_BALANCE),
-                Click.on(BOX_CONSULTAR_ENDING_BALANCE),
-                Enter.theValue(endingBalance).into(BOX_CONSULTAR_ENDING_BALANCE),
-                Hit.the(ENTER).into(BOX_CONSULTAR_ENDING_BALANCE),
+                WaitElement.isClickable(BOX_CONSULTAR_CURRENT_BALANCE),
+                Click.on(BOX_CONSULTAR_CURRENT_BALANCE),
+                Enter.theValue(currentBalance).into(BOX_CONSULTAR_CURRENT_BALANCE),
+                Hit.the(ENTER).into(VALIDATE_FILLED_BOX),
+//                WaitElement.isVisible(VALIDATE_CURRENT_BALANCE),
                 Wait.aTime(5000));
     }
-    public static SerchCreditByEndingBalance serchCreditByEndingBalance(String endingBalance) {
-        return instrumented(SerchCreditByEndingBalance.class, endingBalance);
+    public static SerchCreditByCurrentBalance serchCreditByEndingBalance(String currentBalance) {
+        return instrumented(SerchCreditByCurrentBalance.class, currentBalance);
   }
 
 

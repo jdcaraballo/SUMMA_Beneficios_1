@@ -1,4 +1,4 @@
-package creditos01.interactions.Wait;
+package creditos01.interactions;
 
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 

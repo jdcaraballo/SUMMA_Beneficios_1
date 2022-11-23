@@ -1,15 +1,13 @@
-package creditos01.stepdefinitions.serch_credit;
+package creditos01.stepdefinitions.serch_massive_credit;
 
 
 import creditos01.interactions.HomePage;
-import creditos01.questions.credits_serch.ValidateCreditsSerchNoOk;
-import creditos01.questions.credits_serch.ValidateCreditsSerchOk;
-import creditos01.tasks.serch_credit_by_company.SerchCreditByCompanyNoExisting;
-import creditos01.tasks.serch_credit_by_company.SerchCreditByCompanyOk;
+import creditos01.questions.validate_massive_credits.serch_credit_by_company.ValidateCreditByCompanyNoOk;
+import creditos01.questions.validate_massive_credits.serch_credit_by_company.ValidateCreditByCompanyOk;
+import creditos01.questions.validate_massive_credits.serch_credit_by_id.ValidateCreditById;
+import creditos01.tasks.masive_credits.*;
 import creditos01.tasks.Login;
-import cucumber.api.java.en.Given;
-import cucumber.api.java.en.Then;
-import cucumber.api.java.en.When;
+import cucumber.api.java.en.*;
 import net.serenitybdd.screenplay.actors.OnStage;
 
 import static net.serenitybdd.screenplay.GivenWhenThen.seeThat;
@@ -34,7 +32,7 @@ public class SerchCreditStep {
 
     @Then("^se veran los creditos por Conpania en pantalla$")
     public void seVerancreditosCompaniaEnPantalla() {
-                theActorInTheSpotlight().should(seeThat(ValidateCreditsSerchOk.inPage()));
+                theActorInTheSpotlight().should(seeThat(ValidateCreditByCompanyOk.inPage()));
     }
 
     @When("^el consulta credito por compania (.*) NO Existente$")
@@ -45,17 +43,62 @@ public class SerchCreditStep {
 
     @Then("^se vera pantalla SIN carga de creditos$")
     public void noSeVerancreditoEnPantalla() {
-        theActorInTheSpotlight().should(seeThat(ValidateCreditsSerchNoOk.inPage()));
+        theActorInTheSpotlight().should(seeThat(ValidateCreditByCompanyNoOk.inPage()));
+    }
 
+    @When("^el consulta credito de cedula (.*)$")
+    public void elConsultaCreditoDeCedula(String id) {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                SerchCreditById.serchCreditById(id));
+    }
 
+    @Then("^se vera en pantalla el credito del colaborador con esa cedula$")
+    public void seVeraCreditoEnPantalla() {
+        theActorInTheSpotlight().should(seeThat(ValidateCreditById.inPage()));
+    }
+
+    @When("^el consulta credito por nombre de (.*)$")
+    public void elConsultaPorNombreCredito(String name) {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                SerchCreditByName.serchCreditByName(name));
+    }
+
+    @Then("^se vera en pantalla el credito del colaborador con ese nombre$")
+    public void seVeraCreditoPorNombreEnPantalla() {
+        theActorInTheSpotlight().should(seeThat(ValidateCreditById.inPage()));
+    }
+
+    @When("^el consulta credito por APELLIDO de (.*)$")
+    public void elConsultaPorApellidoCredito(String lastName) {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                SerchCreditByLastName.serchCreditByLastName(lastName));
+    }
+
+    @Then("^se vera en pantalla el credito del colaborador con ese APELLIDO$")
+    public void seVeraCreditoPorApellidoEnPantalla() {
+        theActorInTheSpotlight().should(seeThat(ValidateCreditById.inPage()));
+    }
+
+    @When("^el consulta credito por CONSECUTIVO de (.*)$")
+    public void elConsultaPorConsecutivoCredito(String counterCredit) {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                SerchCreditByCounter.serchCreditByCounter(counterCredit));
+    }
+
+    @Then("^se vera en pantalla el credito del colaborador con ese CONSECUTIVO$")
+    public void seVeraCreditoPorConsecutivoEnPantalla() {
+        theActorInTheSpotlight().should(seeThat(ValidateCreditById.inPage()));
     }
 
 
+    @When("^el consulta credito por SALDO ACTUAL de (.*)$")
+    public void elConsultaPorSaldoFinalCredito(String currentBalance) {
+        OnStage.theActorInTheSpotlight().attemptsTo(
+                SerchCreditByCurrentBalance.serchCreditByEndingBalance(currentBalance));
+    }
 
-//        @When("^el consulta credito de cedula (.*)$")
-//        public void consultaCreditosPorCompania(String identificacion) {
-//
-//
-//        }
-
+    @Then("^se vera en pantalla el credito del colaborador con ese SALDO ACTUAL$")
+    public void seVeraCreditoPorSaldoActualEnPantalla() {
+        theActorInTheSpotlight().should(seeThat(ValidateCreditById.inPage()));
+    }
 }

@@ -1,9 +1,9 @@
-package creditos01.questions.credits_serch.serch_credit_by_company;
+package creditos01.questions.validate_massive_credits.serch_credit_by_company;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-import static creditos01.userinterfaces.ConsultarCreditosByCompanyUser.VALIDATE_EXISTING_RECORD;
+import static creditos01.userinterfaces.SerchMassiveCreditsUser.VALIDATE_EXISTING_RECORD;
 
 public class ValidateCreditByCompanyNoOk implements Question<Boolean> {
 

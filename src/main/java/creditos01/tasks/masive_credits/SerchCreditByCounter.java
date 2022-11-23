@@ -12,25 +12,25 @@ import static creditos01.userinterfaces.SerchMassiveCreditsUser.*;
 import static net.serenitybdd.screenplay.Tasks.instrumented;
 import static org.openqa.selenium.Keys.ENTER;
 
-public class SerchCreditByLastName implements Task {
+public class SerchCreditByCounter implements Task {
 
-    private final String name;
+    private final String counterCredit;
 
-    public SerchCreditByLastName(String name) {
-        this.name = name;
+    public SerchCreditByCounter(String counterCredit) {
+        this.counterCredit = counterCredit;
 }
     @Override
     public <T extends Actor> void performAs(T actor) {
         actor.attemptsTo(
                 Click.on(BTN_VER_CREDITOS),
-                WaitElement.isClickable(BOX_CONSULTAR_CRED_LASTNAME),
-                Click.on(BOX_CONSULTAR_CRED_LASTNAME),
-                Enter.theValue(name).into(BOX_CONSULTAR_CRED_LASTNAME),
-                Hit.the(ENTER).into(BOX_CONSULTAR_CRED_LASTNAME),
+                WaitElement.isClickable(BOX_CONSULTAR_CRED_COUNTER),
+                Click.on(BOX_CONSULTAR_CRED_COUNTER),
+                Enter.theValue(counterCredit).into(BOX_CONSULTAR_CRED_COUNTER),
+                Hit.the(ENTER).into(BOX_CONSULTAR_CRED_COUNTER),
                 Wait.aTime(5000));
     }
-    public static SerchCreditByLastName serchCreditByName(String name) {
-        return instrumented(SerchCreditByLastName.class, name);
+    public static SerchCreditByCounter serchCreditByCounter(String counterCredit) {
+        return instrumented(SerchCreditByCounter.class, counterCredit);
   }
 
 

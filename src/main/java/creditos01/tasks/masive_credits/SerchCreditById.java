@@ -1,4 +1,4 @@
-package creditos01.tasks.serch_credit_by_id;
+package creditos01.tasks.masive_credits;
 
 import creditos01.interactions.Wait;
 import creditos01.interactions.WaitElement;

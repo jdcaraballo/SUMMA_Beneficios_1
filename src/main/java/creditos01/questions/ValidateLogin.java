@@ -1,21 +1,22 @@
-package co.com.prueba_1_maquina.questions.login;
+package creditos01.questions;
 
-import co.com.prueba_1_maquina.interactions.WaitElement;
+import creditos01.interactions.WaitElement;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
-import static co.com.prueba_1_maquina.userinterface.LoginValidateUser.*;
 
-public class ValidarLogin implements Question<Boolean> {
+import static creditos01.userinterfaces.SerchMassiveCreditsUser.BTN_VER_CREDITOS;
+
+public class ValidateLogin implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
-        actor.attemptsTo(WaitElement.esVisible(VALIDAR_LOGIN_EXITOSO));
+        actor.attemptsTo(WaitElement.isVisible(BTN_VER_CREDITOS));
         return true;
 
     }
-    public static ValidarLogin enPantallaDeInicio() {
-        return new ValidarLogin();
+    public static ValidateLogin inPage() {
+        return new ValidateLogin();
     }
 }
 

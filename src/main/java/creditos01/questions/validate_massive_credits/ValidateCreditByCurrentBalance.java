@@ -1,21 +1,23 @@
-package creditos01.questions.validate_massive_credits.serch_credit_by_id;
+package creditos01.questions.validate_massive_credits;
 
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.Question;
 
+import static creditos01.userinterfaces.SerchMassiveCreditsUser.VALIDATE_CURRENT_BALANCE;
 import static creditos01.userinterfaces.SerchMassiveCreditsUser.VALIDATE_EXISTING_RECORD;
 
-public class ValidateCreditById implements Question<Boolean> {
+public class ValidateCreditByCurrentBalance implements Question<Boolean> {
 
     @Override
     public Boolean answeredBy(Actor actor) {
 
-        if(VALIDATE_EXISTING_RECORD.resolveFor(actor).isVisible())
-            return true;
-            return false;
+        if(VALIDATE_CURRENT_BALANCE.resolveFor(actor).isVisible())
+        return true;
+        return false;
+
     }
-    public static ValidateCreditById inPage() {
-        return new ValidateCreditById();
+    public static ValidateCreditByCurrentBalance inPage() {
+        return new ValidateCreditByCurrentBalance();
     }
 }
 
