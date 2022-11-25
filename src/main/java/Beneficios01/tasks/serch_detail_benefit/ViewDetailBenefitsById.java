@@ -26,7 +26,6 @@ public class ViewDetailBenefitsById implements Task {
 //                Hit.the(ENTER).into(BOX_SERCH_NAME_ID),
 //                Wait.aTime(5000)
 
-
                   Click.on(ICON_LUPA_WATCH_DETAIL),
                 Wait.aTime(10000),
                 Click.on(CANCEL_VIEW_DETAIL_BENEFIT)
